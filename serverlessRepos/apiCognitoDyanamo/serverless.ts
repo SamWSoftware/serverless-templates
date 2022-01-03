@@ -1,4 +1,6 @@
 import type { AWS } from '@serverless/typescript';
+import CognitoResources from './serverless/cognito';
+import DynamoResources from './serverless/dynamo';
 import functions from './serverless/functions';
 
 const serverlessConfiguration: AWS = {
@@ -28,6 +30,9 @@ const serverlessConfiguration: AWS = {
         },
     },
     functions,
+    resources: {
+        Resources: [...CognitoResources, ...DynamoResources],
+    },
 };
 
 module.exports = serverlessConfiguration;

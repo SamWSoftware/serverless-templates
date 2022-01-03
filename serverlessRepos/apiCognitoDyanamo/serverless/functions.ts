@@ -61,20 +61,6 @@ const functions = {
             },
         ],
     },
-
-    fakeGet: {
-        handler: 'src/lambdas/getFlights/index.handler',
-        events: [
-            {
-                http: {
-                    method: 'get',
-                    path: 'fake',
-                    cors: corsSettings,
-                    authorizer,
-                },
-            },
-        ],
-    },
 };
 
 export default functions;

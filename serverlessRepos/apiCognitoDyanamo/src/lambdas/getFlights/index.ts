@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import APIResponses from 'src/common/APIResponses';
-import Dynamo from 'src/common/Dynamo';
+import APIResponses from '../../common/APIResponses';
+import Dynamo from '../../common/Dynamo';
 
 const handler = async (event: APIGatewayProxyEvent) => {
     try {
@@ -32,7 +32,7 @@ const getFlights = async ({
 }) => {
     return Dynamo.query({
         tableName: process.env.singleTable,
-        index: 'index1',
+        index: 'gsi1',
         hashKey: 'pk',
         hashValue: 'flight',
         rangeKey: 'sk',
