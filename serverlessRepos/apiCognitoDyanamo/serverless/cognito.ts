@@ -1,0 +1,1 @@
+../../../serverlessComponents/cognito/cognitoResources.ts

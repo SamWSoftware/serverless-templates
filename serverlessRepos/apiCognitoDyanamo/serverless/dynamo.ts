@@ -1,0 +1,1 @@
+../../../serverlessComponents/dynamo/payPerRequest/singleTableWithGSI.ts
