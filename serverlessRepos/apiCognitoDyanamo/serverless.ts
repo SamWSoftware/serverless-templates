@@ -31,7 +31,10 @@ const serverlessConfiguration: AWS = {
     },
     functions,
     resources: {
-        Resources: [...CognitoResources, ...DynamoResources],
+        Resources: {
+            ...CognitoResources,
+            ...DynamoResources,
+        },
     },
 };
 
