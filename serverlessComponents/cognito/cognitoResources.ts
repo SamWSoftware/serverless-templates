@@ -102,13 +102,6 @@ const CognitoResources: AWS['resources']['Resources'] = {
             },
             Policies: [
                 // add whatever policies you need here
-                {
-                    PolicyName: 'CognitoAuthorizedPolicy',
-                    PolicyDocument: {
-                        Version: '2012-10-17',
-                        Statement: [],
-                    },
-                },
             ],
         },
     },
