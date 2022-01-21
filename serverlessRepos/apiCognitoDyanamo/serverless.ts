@@ -1,4 +1,6 @@
 import type { AWS } from '@serverless/typescript';
+import CognitoResources from './serverless/cognito';
+import DynamoResources from './serverless/dynamo';
 import functions from './serverless/functions';
 
 const serverlessConfiguration: AWS = {
@@ -14,11 +16,14 @@ const serverlessConfiguration: AWS = {
             includeModules: true,
         },
     },
+    package: {
+        individually: true,
+    },
     // Add the serverless-webpack plugin
     plugins: ['serverless-webpack'],
     provider: {
         name: 'aws',
-        runtime: 'nodejs12.x',
+        runtime: 'nodejs14.x',
         apiGateway: {
             minimumCompressionSize: 1024,
         },
@@ -28,6 +33,12 @@ const serverlessConfiguration: AWS = {
         },
     },
     functions,
+    resources: {
+        Resources: {
+            ...CognitoResources,
+            ...DynamoResources,
+        },
+    },
 };
 
 module.exports = serverlessConfiguration;

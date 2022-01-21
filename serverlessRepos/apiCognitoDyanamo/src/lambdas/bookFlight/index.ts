@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import APIResponses from 'src/common/APIResponses';
-import Dynamo from 'src/common/Dynamo';
-import { Flight, Passenger } from 'src/types/flights';
+import APIResponses from '../../common/APIResponses';
+import Dynamo from '../../common/Dynamo';
+import { Flight, Passenger } from '../../types/flights';
 
 const handler = async (event: APIGatewayProxyEvent) => {
     try {

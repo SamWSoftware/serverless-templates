@@ -43,7 +43,9 @@ const serverlessConfiguration: AWS = {
             IsProd: { 'Fn::Equals': ['${opt:stage, self:provider.stage}', 'prod'] },
             NotProd: { 'Fn::Not': 'IsProd' },
         },
-        ...WebsiteBucketAndCloudfront,
+        Resources: {
+            ...WebsiteBucketAndCloudfront,
+        },
     },
 };
 

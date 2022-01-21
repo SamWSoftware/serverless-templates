@@ -102,6 +102,29 @@ const CognitoResources: AWS['resources']['Resources'] = {
             },
             Policies: [
                 // add whatever policies you need here
+                {
+                    PolicyName: 'CognitoAuthorizedPolicy',
+                    PolicyDocument: {
+                        Version: '2012-10-17',
+                        Statement: [
+                            {
+                                Effect: 'Allow',
+                                Action: ['s3:ListBucket'],
+                                Resource: { 'Fn::GetAtt': ['AssetS3Bucket', 'Arn'] },
+                            },
+                            {
+                                Effect: 'Allow',
+                                Action: ['s3:PutObject', 's3:GetObject'],
+                                Resource: {
+                                    'Fn::Join': [
+                                        '',
+                                        [{ 'Fn::GetAtt': ['AssetS3Bucket', 'Arn'] }, '/*'],
+                                    ],
+                                },
+                            },
+                        ],
+                    },
+                },
             ],
         },
     },

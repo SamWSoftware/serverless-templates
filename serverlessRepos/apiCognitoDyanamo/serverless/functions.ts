@@ -34,15 +34,6 @@ const functions = {
                     path: 'flights',
                     cors: corsSettings,
                     authorizer,
-                    responses: {
-                        200: {
-                            description: 'successful API Response',
-                            bodyType: 'getFlightsResponse',
-                        },
-                        400: {
-                            description: 'failed API Response - user error',
-                        },
-                    },
                 },
             },
         ],
@@ -54,21 +45,6 @@ const functions = {
                 http: {
                     method: 'post',
                     path: 'flights/{flightID}',
-                    cors: corsSettings,
-                    authorizer,
-                    bodyType: 'PostFlightBody',
-                },
-            },
-        ],
-    },
-
-    fakeGet: {
-        handler: 'src/lambdas/getFlights/index.handler',
-        events: [
-            {
-                http: {
-                    method: 'get',
-                    path: 'fake',
                     cors: corsSettings,
                     authorizer,
                 },
