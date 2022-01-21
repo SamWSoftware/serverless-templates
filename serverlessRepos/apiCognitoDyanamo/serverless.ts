@@ -16,6 +16,9 @@ const serverlessConfiguration: AWS = {
             includeModules: true,
         },
     },
+    package: {
+        individually: true,
+    },
     // Add the serverless-webpack plugin
     plugins: ['serverless-webpack'],
     provider: {
